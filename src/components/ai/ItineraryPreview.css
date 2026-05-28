@@ -1,0 +1,436 @@
+.itinerary-wrapper{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+/* HERO */
+
+.itinerary-hero{
+  background:linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b
+  );
+
+  color:white;
+  border-radius:32px;
+  padding:34px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+
+  overflow:hidden;
+  position:relative;
+}
+
+.trip-badge{
+  display:inline-flex;
+  align-items:center;
+
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.12);
+
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  margin-bottom:18px;
+}
+
+.itinerary-hero h1{
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:800;
+  line-height:1;
+  margin-bottom:14px;
+}
+
+.itinerary-hero h1 span{
+  color:#fb923c;
+}
+
+.trip-dates{
+  color:#cbd5e1;
+  font-size:15px;
+}
+
+.trip-budget{
+  min-width:160px;
+  height:160px;
+
+  border-radius:30px;
+
+  background:linear-gradient(
+    135deg,
+    #f97316,
+    #ea580c
+  );
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  font-size:2rem;
+  font-weight:800;
+
+  box-shadow:
+    0 14px 40px rgba(249,115,22,.35);
+}
+
+.trip-budget span{
+  margin-top:8px;
+
+  font-size:13px;
+  font-weight:600;
+
+  opacity:.9;
+}
+
+/* DAY CARD */
+
+.day-card{
+  background:white;
+
+  border-radius:30px;
+
+  padding:30px;
+
+  border:1px solid #e2e8f0;
+
+  box-shadow:
+    0 10px 30px rgba(15,23,42,.04);
+}
+
+.day-header{
+  display:flex;
+  align-items:center;
+  gap:20px;
+
+  margin-bottom:28px;
+}
+
+.day-number{
+  width:82px;
+  height:82px;
+
+  border-radius:24px;
+
+  background:linear-gradient(
+    135deg,
+    #f97316,
+    #ea580c
+  );
+
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:800;
+  font-size:18px;
+
+  flex-shrink:0;
+}
+
+.day-header h2{
+  font-size:1.7rem;
+  font-weight:800;
+  color:#0f172a;
+
+  margin-bottom:6px;
+}
+
+.day-header p{
+  color:#64748b;
+  font-size:15px;
+}
+
+/* ACTIVITIES */
+
+.activities-grid{
+  display:grid;
+  gap:18px;
+}
+
+.activity-card{
+  background:#f8fafc;
+
+  border:1px solid #e2e8f0;
+
+  border-radius:24px;
+
+  padding:22px;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.activity-card:hover{
+  transform:translateY(-4px);
+
+  box-shadow:
+    0 10px 24px rgba(15,23,42,.08);
+}
+
+.activity-top{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+
+  margin-bottom:16px;
+}
+
+.activity-icon{
+  width:54px;
+  height:54px;
+
+  border-radius:18px;
+
+  background:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#f97316;
+
+  font-size:20px;
+
+  box-shadow:
+    0 4px 14px rgba(15,23,42,.06);
+}
+
+.activity-time{
+  display:block;
+
+  font-size:12px;
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  letter-spacing:.08em;
+
+  color:#f97316;
+
+  margin-bottom:4px;
+}
+
+.activity-card h3{
+  font-size:1.15rem;
+  font-weight:700;
+  color:#0f172a;
+}
+
+.activity-description{
+  color:#64748b;
+
+  line-height:1.8;
+
+  font-size:14px;
+
+  margin-bottom:18px;
+}
+
+.activity-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  gap:12px;
+
+  flex-wrap:wrap;
+
+  color:#475569;
+
+  font-size:13px;
+  font-weight:600;
+}
+
+.activity-footer span{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.activity-cost{
+  color:#ea580c;
+}
+
+/* EXTRAS */
+
+.extras-grid{
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:16px;
+
+  margin-top:24px;
+}
+
+.extra-card{
+  border-radius:24px;
+
+  padding:20px;
+
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+
+  color:white;
+}
+
+.extra-card svg{
+  font-size:20px;
+
+  flex-shrink:0;
+
+  margin-top:2px;
+}
+
+.food-card{
+  background:linear-gradient(
+    135deg,
+    #0f766e,
+    #115e59
+  );
+}
+
+.hotel-card{
+  background:linear-gradient(
+    135deg,
+    #1d4ed8,
+    #1e40af
+  );
+}
+
+.tips-card{
+  background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #6d28d9
+  );
+}
+
+.extra-card h4{
+  font-size:15px;
+  font-weight:700;
+
+  margin-bottom:8px;
+}
+
+.extra-card p,
+.extra-card li{
+  font-size:13px;
+  line-height:1.7;
+
+  opacity:.95;
+}
+
+.extra-card ul{
+  padding-left:18px;
+}
+
+/* EMPTY */
+
+.itinerary-empty{
+  min-height:650px;
+
+  background:white;
+
+  border-radius:32px;
+
+  border:1px dashed #cbd5e1;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:40px;
+}
+
+.empty-icon{
+  width:90px;
+  height:90px;
+
+  border-radius:28px;
+
+  background:#fff7ed;
+
+  color:#f97316;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:36px;
+
+  margin-bottom:24px;
+}
+
+.itinerary-empty h2{
+  font-size:1.5rem;
+  font-weight:800;
+  color:#0f172a;
+
+  margin-bottom:10px;
+}
+
+.itinerary-empty p{
+  max-width:360px;
+
+  color:#64748b;
+
+  line-height:1.8;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .extras-grid{
+    grid-template-columns:1fr;
+  }
+
+  .itinerary-hero{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .trip-budget{
+    width:100%;
+  }
+}
+
+@media(max-width:640px){
+
+  .day-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .day-number{
+    width:70px;
+    height:70px;
+  }
+
+  .itinerary-hero{
+    padding:28px;
+  }
+
+  .day-card{
+    padding:22px;
+  }
+}

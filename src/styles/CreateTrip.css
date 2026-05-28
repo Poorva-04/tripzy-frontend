@@ -1,0 +1,670 @@
+/* ================================================
+   CREATE TRIP PAGE
+================================================ */
+ 
+.create-trip-page {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  background: #f1f5f9;
+}
+ 
+/* ================================================
+   HERO
+================================================ */
+ 
+.compact-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 28px;
+  padding: 36px 44px;
+  border-radius: 24px;
+  background: #0f172a;
+  background-image:
+    radial-gradient(ellipse 70% 70% at 100% 50%, rgba(249,115,22,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(249,115,22,0.08) 0%, transparent 60%);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+ 
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(249,115,22,0.15);
+  border: 1px solid rgba(249,115,22,0.3);
+  color: #fb923c;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+ 
+.compact-hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: white;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+ 
+.compact-hero p {
+  color: #94a3b8;
+  line-height: 1.7;
+  font-size: 15px;
+  max-width: 540px;
+}
+ 
+.hero-pill {
+  flex-shrink: 0;
+  min-width: 130px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 20px;
+  background: rgba(249,115,22,0.12);
+  border: 1px solid rgba(249,115,22,0.25);
+  color: #fb923c;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+ 
+.hero-pill svg {
+  font-size: 18px;
+  opacity: 0.8;
+}
+ 
+/* ================================================
+   LAYOUT
+================================================ */
+ 
+.planner-layout {
+  display: grid;
+  grid-template-columns: 420px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+ 
+/* ================================================
+   FORM CARD
+================================================ */
+ 
+.ct-form {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px 26px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 24px rgba(15,23,42,0.06), 0 1px 4px rgba(15,23,42,0.04);
+}
+ 
+/* ================================================
+   SUMMARY BAR
+================================================ */
+ 
+.ct-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+ 
+.ct-summary-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  font-size: 12.5px;
+  color: #475569;
+  box-shadow: 0 1px 3px rgba(15,23,42,0.04);
+}
+ 
+.ct-summary-chip svg {
+  color: #f97316;
+  font-size: 11px;
+}
+ 
+.ct-summary-chip strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+ 
+.ct-summary-chip--budget {
+  margin-left: auto;
+  background: #fff7ed;
+  border-color: rgba(249,115,22,0.2);
+  color: #ea580c;
+}
+ 
+.ct-summary-chip--budget strong {
+  color: #c2410c;
+}
+ 
+/* ================================================
+   FIELD ROWS
+================================================ */
+ 
+.ct-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+ 
+.ct-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+ 
+.ct-field--full {
+  grid-column: 1 / -1;
+}
+ 
+.ct-field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+ 
+.ct-optional {
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 4px;
+}
+ 
+/* ================================================
+   INPUT WRAP
+================================================ */
+ 
+.ct-input-wrap {
+  position: relative;
+}
+ 
+.ct-field-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 13px;
+  pointer-events: none;
+  z-index: 1;
+}
+ 
+.ct-input-wrap input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 14px;
+  color: #0f172a;
+  transition: border-color .18s, box-shadow .18s, background .18s;
+  box-sizing: border-box;
+}
+ 
+.ct-input-wrap input:hover {
+  border-color: #cbd5e1;
+  background: #fff;
+}
+ 
+.ct-input-wrap input:focus {
+  outline: none;
+  border-color: #f97316;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.10);
+}
+ 
+.ct-input-wrap input::placeholder {
+  color: #cbd5e1;
+}
+ 
+/* Clear button inside input */
+.ct-clear-btn {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  border-radius: 50%;
+  transition: color .15s, background .15s;
+}
+ 
+.ct-clear-btn:hover {
+  color: #ef4444;
+  background: #fee2e2;
+}
+ 
+/* ================================================
+   SELECT
+================================================ */
+ 
+.ct-select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 14px;
+  color: #0f172a;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  transition: border-color .18s, box-shadow .18s, background .18s;
+}
+ 
+.ct-select:hover {
+  border-color: #cbd5e1;
+  background-color: #fff;
+}
+ 
+.ct-select:focus {
+  outline: none;
+  border-color: #f97316;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.10);
+}
+ 
+/* ================================================
+   TEXTAREA
+================================================ */
+ 
+.ct-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 14px;
+  color: #0f172a;
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  line-height: 1.6;
+  transition: border-color .18s, box-shadow .18s, background .18s;
+  box-sizing: border-box;
+}
+ 
+.ct-textarea:hover { border-color: #cbd5e1; background: #fff; }
+.ct-textarea:focus {
+  outline: none;
+  border-color: #f97316;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.10);
+}
+.ct-textarea::placeholder { color: #cbd5e1; }
+ 
+/* ================================================
+   DESTINATION DROPDOWN
+================================================ */
+ 
+.ct-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  background: white;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(15,23,42,0.10), 0 4px 12px rgba(15,23,42,0.06);
+  z-index: 50;
+  scroll-behavior: smooth;
+}
+ 
+.ct-dropdown::-webkit-scrollbar { width: 4px; }
+.ct-dropdown::-webkit-scrollbar-track { background: transparent; }
+.ct-dropdown::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 999px; }
+ 
+.ct-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  cursor: pointer;
+  font-size: 13.5px;
+  color: #334155;
+  transition: background .12s;
+  border-bottom: 1px solid #f1f5f9;
+}
+ 
+.ct-dropdown-item:last-child { border-bottom: none; }
+ 
+.ct-dropdown-item:hover {
+  background: #fff7ed;
+  color: #ea580c;
+}
+ 
+.ct-dropdown-icon {
+  font-size: 11px;
+  color: #f97316;
+  flex-shrink: 0;
+}
+ 
+/* ================================================
+   DATE FIELD
+================================================ */
+ 
+.ct-date-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+ 
+.ct-date-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 14px;
+  color: #cbd5e1;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color .18s, background .18s, box-shadow .18s;
+  position: relative;
+}
+ 
+.ct-date-btn:hover {
+  border-color: #cbd5e1;
+  background: #fff;
+}
+ 
+.ct-date-btn:focus {
+  outline: none;
+  border-color: #f97316;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.10);
+}
+ 
+.ct-date-btn--filled {
+  color: #0f172a;
+  background: #fff;
+}
+ 
+.ct-date-btn .ct-field-icon {
+  position: static;
+  transform: none;
+  color: #f97316;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+ 
+.ct-date-btn span {
+  flex: 1;
+}
+ 
+.ct-date-clear {
+  font-size: 10px;
+  color: #94a3b8;
+  flex-shrink: 0;
+  transition: color .15s;
+}
+ 
+.ct-date-btn:hover .ct-date-clear { color: #ef4444; }
+ 
+/* ================================================
+   CALENDAR PANEL
+================================================ */
+ 
+.ct-cal-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 60;
+  width: 280px;
+  background: white;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(15,23,42,0.12), 0 4px 12px rgba(15,23,42,0.06);
+  padding: 16px;
+  animation: ctCalIn .15s ease;
+}
+ 
+/* Ensure second calendar doesn't go off screen */
+.ct-date-field:last-child .ct-cal-panel {
+  left: auto;
+  right: 0;
+}
+ 
+@keyframes ctCalIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+ 
+.ct-cal-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+ 
+.ct-cal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+ 
+.ct-cal-nav {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background .15s, color .15s;
+}
+ 
+.ct-cal-nav:hover { background: #fff7ed; color: #f97316; border-color: rgba(249,115,22,0.3); }
+ 
+.ct-cal-close {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 11px;
+  border-radius: 8px;
+  transition: color .15s, background .15s;
+}
+ 
+.ct-cal-close:hover { color: #ef4444; background: #fee2e2; }
+ 
+.ct-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+ 
+.ct-cal-dayname {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  padding: 4px 0 8px;
+  letter-spacing: .04em;
+}
+ 
+.ct-cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  font-size: 12.5px;
+  color: #334155;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+ 
+.ct-cal-day:hover:not(.ct-cal-disabled):not(.ct-cal-empty) {
+  background: #fff7ed;
+  color: #ea580c;
+}
+ 
+.ct-cal-today { font-weight: 700; color: #f97316; }
+ 
+.ct-cal-selected {
+  background: #f97316 !important;
+  color: white !important;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(249,115,22,0.3);
+}
+ 
+.ct-cal-disabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
+}
+ 
+.ct-cal-empty { pointer-events: none; }
+ 
+/* ================================================
+   ACTION BUTTONS
+================================================ */
+ 
+.ct-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+ 
+.ct-btn {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 14px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, background .15s, opacity .15s;
+}
+ 
+.ct-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+ 
+.ct-btn--preview {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1.5px solid #e2e8f0;
+}
+ 
+.ct-btn--preview:hover:not(:disabled) {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+ 
+.ct-btn--save {
+  background: #f97316;
+  color: white;
+  box-shadow: 0 6px 18px rgba(249,115,22,0.22);
+}
+ 
+.ct-btn--save:hover:not(:disabled) {
+  background: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(249,115,22,0.28);
+}
+ 
+/* ================================================
+   ITINERARY PANEL
+================================================ */
+ 
+.itinerary-preview {
+  min-height: 600px;
+  border-radius: 24px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 24px rgba(15,23,42,0.06);
+  padding: 32px;
+}
+ 
+.itinerary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+ 
+.itinerary-content pre {
+  white-space: pre-wrap;
+  color: #334155;
+  font-family: inherit;
+  line-height: 1.7;
+  font-size: 14px;
+}
+ 
+/* ================================================
+   RESPONSIVE
+================================================ */
+ 
+@media (max-width: 1000px) {
+  .planner-layout { grid-template-columns: 1fr; }
+  .ct-form { position: relative; top: 0; }
+  .compact-hero { flex-direction: column; align-items: flex-start; }
+  .hero-pill { align-self: flex-start; }
+}
+ 
+@media (max-width: 640px) {
+  .create-trip-page { padding-top: 85px; }
+  .compact-hero { padding: 26px 22px; border-radius: 18px; }
+  .compact-hero h1 { font-size: 2rem; }
+  .ct-form { padding: 20px 16px; border-radius: 18px; }
+  .ct-row { grid-template-columns: 1fr; }
+  .ct-actions { grid-template-columns: 1fr; }
+  .ct-cal-panel { width: 260px; }
+}

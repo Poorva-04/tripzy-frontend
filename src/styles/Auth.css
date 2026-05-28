@@ -1,0 +1,335 @@
+/* ============================================================
+   TRIPZY — Auth.css
+   Covers: LoginForm & RegisterForm
+   Matches classes: .login-form-wrapper, .register-form-wrapper,
+   .auth-card, .auth-card--wide, .auth-brand, .auth-logo,
+   .auth-title, .auth-subtitle, .auth-form, .form-group,
+   .form-row, .auth-btn, .auth-btn--primary, .auth-footer,
+   .auth-link, .required
+   ============================================================ */
+ 
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap");
+ 
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+/* ============================================================
+   PAGE WRAPPERS
+   Both Login and Register wrappers share the same full-screen
+   centred layout; only max-width of the card differs.
+   ============================================================ */
+ 
+.login-form-wrapper,
+.register-form-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  font-family: "DM Sans", sans-serif;
+ 
+  /* Subtle travel-themed gradient background */
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(249, 115, 22, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 60% 90%, rgba(251, 191, 36, 0.06) 0%, transparent 50%),
+    #f5f4f0;
+  background-attachment: fixed;
+}
+ 
+/* ============================================================
+   CARD
+   ============================================================ */
+ 
+.auth-card {
+  background: #ffffff;
+  border: 1px solid #e8e5de;
+  border-radius: 20px;
+  padding: 2.4rem 2.2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.04),
+    0 20px 60px rgba(0, 0, 0, 0.07);
+  animation: cardIn 0.45s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+}
+ 
+/* Register card is wider to fit the two-column rows */
+.auth-card--wide {
+  max-width: 600px;
+  padding: 2.4rem 2.4rem;
+}
+ 
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+ 
+/* ============================================================
+   BRAND / LOGO BLOCK
+   ============================================================ */
+ 
+.auth-brand {
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+ 
+.auth-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+  font-size: 1.5rem;
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.32);
+  margin-bottom: 0.9rem;
+  /* The emoji is the logo — no extra styling needed */
+  line-height: 1;
+}
+ 
+.auth-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin-bottom: 0.3rem;
+}
+ 
+.auth-subtitle {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #8b8b9a;
+}
+ 
+/* ============================================================
+   FORM
+   ============================================================ */
+ 
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+ 
+/* ── Single field ── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+ 
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #374151;
+  letter-spacing: 0.015em;
+}
+ 
+.required {
+  color: #f97316;
+  margin-left: 2px;
+}
+ 
+.form-group input {
+  width: 100%;
+  background: #fafaf8;
+  border: 1.5px solid #e5e3dc;
+  border-radius: 10px;
+  padding: 10px 13px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+ 
+.form-group input::placeholder {
+  color: #b0adb8;
+  font-weight: 300;
+}
+ 
+.form-group input:focus {
+  border-color: #f97316;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+ 
+.form-group input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+ 
+/* ── Two-column row (password pair / phone+city) ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+ 
+/* ============================================================
+   SUBMIT BUTTON
+   ============================================================ */
+ 
+.auth-btn {
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.93rem;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: 0.025em;
+  transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease, opacity 0.2s ease;
+  margin-top: 0.25rem;
+}
+ 
+.auth-btn--primary {
+  background: #1a1a2e;
+  color: #ffffff;
+}
+ 
+.auth-btn--primary:hover:not(:disabled) {
+  background: #f97316;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.3);
+}
+ 
+.auth-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+ 
+/* ============================================================
+   FOOTER SWITCH LINK
+   ============================================================ */
+ 
+.auth-footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8b8b9a;
+}
+ 
+.auth-link {
+  color: #f97316;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 3px;
+  transition: color 0.2s ease;
+}
+ 
+.auth-link:hover {
+  color: #ea6c00;
+  text-decoration: underline;
+}
+ 
+/* ============================================================
+   ERROR MESSAGE  (rendered by <ErrorMessage />)
+   Give it a hook in case ErrorMessage uses a generic class name
+   ============================================================ */
+ 
+.error-message,
+[class*="error-message"],
+[class*="ErrorMessage"] {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #fff1f1;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 10px 13px;
+  font-size: 0.84rem;
+  color: #b91c1c;
+  margin-bottom: 0.2rem;
+  line-height: 1.5;
+}
+ 
+/* ============================================================
+   LOADER  (rendered by <Loader size="sm" inline />)
+   Inline spinner that sits inside the button
+   ============================================================ */
+ 
+.loader,
+.loader--sm,
+[class*="loader"] {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+ 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+ 
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+ 
+/* Tablet */
+@media (max-width: 640px) {
+  .auth-card,
+  .auth-card--wide {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+ 
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+ 
+/* Mobile */
+@media (max-width: 400px) {
+  .login-form-wrapper,
+  .register-form-wrapper {
+    padding: 1rem 0.75rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+ 
+  .auth-card,
+  .auth-card--wide {
+    padding: 1.6rem 1.2rem;
+  }
+ 
+  .auth-title {
+    font-size: 1.5rem;
+  }
+}
+ 
+
+
+
+
+
+
+
