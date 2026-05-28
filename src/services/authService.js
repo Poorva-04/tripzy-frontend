@@ -1,6 +1,6 @@
 import { getToken } from "../utils/tokenHelpers";
 
-const BASE_URL = "http://localhost:9095/api";
+const BASE_URL = "https://tripzzyy-backend.onrender.com";
 
 const getHeaders = () => {
   const token = getToken();
